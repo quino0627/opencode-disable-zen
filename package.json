@@ -4,11 +4,14 @@
   "description": "OpenCode plugin to disable Zen provider for ZDR (Zero Data Retention) compliance",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "opencode-disable-zen": "./dist/cli.js"
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -36,6 +39,7 @@
   "devDependencies": {
     "@opencode-ai/plugin": "^1.0.0",
     "@opencode-ai/sdk": "^1.0.0",
+    "@types/node": "^25.0.3",
     "typescript": "^5.0.0"
   }
 }

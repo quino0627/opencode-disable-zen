@@ -36,13 +36,15 @@ export const DisableZenPlugin: Plugin = async ({ client }) => {
   console.warn(ZDR_WARNING)
 
   await client.app.log({
-    service: "opencode-disable-zen",
-    level: "warn",
-    message: "OpenCode Zen disabled for ZDR compliance",
-    extra: {
-      reason: "Free models may collect data for training",
-      affected_models: ["grok-code", "glm-4.7-free", "minimax-m2.1-free", "big-pickle"],
-      documentation: "https://opencode.ai/docs/zen/#privacy",
+    body: {
+      service: "opencode-disable-zen",
+      level: "warn",
+      message: "OpenCode Zen disabled for ZDR compliance",
+      extra: {
+        reason: "Free models may collect data for training",
+        affected_models: ["grok-code", "glm-4.7-free", "minimax-m2.1-free", "big-pickle"],
+        documentation: "https://opencode.ai/docs/zen/#privacy",
+      },
     },
   })
 
@@ -62,9 +64,11 @@ export const DisableZenPlugin: Plugin = async ({ client }) => {
         config.disabled_providers.push(ZEN_PROVIDER_ID)
 
         await client.app.log({
-          service: "opencode-disable-zen",
-          level: "info",
-          message: `Added '${ZEN_PROVIDER_ID}' to disabled_providers`,
+          body: {
+            service: "opencode-disable-zen",
+            level: "info",
+            message: `Added '${ZEN_PROVIDER_ID}' to disabled_providers`,
+          },
         })
       }
     },
@@ -76,9 +80,11 @@ export const DisableZenPlugin: Plugin = async ({ client }) => {
       // Log if session starts (for audit trail)
       if (event.type === "session.created") {
         await client.app.log({
-          service: "opencode-disable-zen",
-          level: "debug",
-          message: "Session created with Zen disabled",
+          body: {
+            service: "opencode-disable-zen",
+            level: "debug",
+            message: "Session created with Zen disabled",
+          },
         })
       }
     },

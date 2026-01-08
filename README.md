@@ -19,13 +19,24 @@ Additionally, Zen's anonymous access (no sign-in required for free models) is **
 
 ## Installation
 
+### Quick Install (Recommended)
+
+```bash
+npx opencode-disable-zen install
+```
+
+For global installation:
+```bash
+npx opencode-disable-zen install --global
+```
+
+### Manual Install
+
 ```bash
 npm install opencode-disable-zen
 ```
 
-## Usage
-
-Add to your `opencode.json`:
+Then add to your `opencode.json`:
 
 ```json
 {
@@ -41,6 +52,15 @@ Or global config at `~/.config/opencode/opencode.json`.
 1. Adds `"opencode"` to `disabled_providers` list
 2. Logs a warning at startup about ZDR implications
 3. Provides audit trail for compliance
+
+## CLI Commands
+
+```bash
+npx opencode-disable-zen install          # Add to local opencode.json
+npx opencode-disable-zen install --global # Add to ~/.config/opencode/opencode.json
+npx opencode-disable-zen uninstall        # Remove from local config
+npx opencode-disable-zen --help           # Show help
+```
 
 ## For oh-my-opencode users
 
