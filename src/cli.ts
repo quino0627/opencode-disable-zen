@@ -30,8 +30,13 @@ function ensureDirectoryExists(filePath: string): void {
 function readJsonConfig(path: string): Record<string, unknown> {
   if (!existsSync(path)) return {}
   const content = readFileSync(path, "utf-8")
-  const cleanContent = content.replace(/\/\/.*$/gm, "").replace(/\/\*[\s\S]*?\*\//g, "")
-  return JSON.parse(cleanContent)
+  if (path.endsWith(".jsonc")) {
+    const cleanContent = content
+      .replace(/^\s*\/\/.*$/gm, "")
+      .replace(/\/\*[\s\S]*?\*\//g, "")
+    return JSON.parse(cleanContent)
+  }
+  return JSON.parse(content)
 }
 
 function writeJsonConfig(path: string, config: Record<string, unknown>): void {

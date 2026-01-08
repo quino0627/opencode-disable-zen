@@ -1,7 +1,8 @@
 {
   "name": "opencode-disable-zen",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "OpenCode plugin to disable Zen provider for ZDR (Zero Data Retention) compliance",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
