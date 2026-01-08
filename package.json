@@ -1,0 +1,41 @@
+{
+  "name": "opencode-disable-zen",
+  "version": "1.0.0",
+  "description": "OpenCode plugin to disable Zen provider for ZDR (Zero Data Retention) compliance",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "zdr",
+    "zero-data-retention",
+    "privacy",
+    "zen"
+  ],
+  "author": "mong",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quino0627/opencode-disable-zen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/quino0627/opencode-disable-zen/issues"
+  },
+  "homepage": "https://github.com/quino0627/opencode-disable-zen#readme",
+  "peerDependencies": {
+    "@opencode-ai/plugin": "*",
+    "@opencode-ai/sdk": "*"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.0.0",
+    "@opencode-ai/sdk": "^1.0.0",
+    "typescript": "^5.0.0"
+  }
+}
