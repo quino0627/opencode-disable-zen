@@ -29,13 +29,13 @@ function ensureDirectoryExists(filePath: string): void {
 
 function readJsonConfig(path: string): Record<string, unknown> {
   if (!existsSync(path)) return {}
-  const content = readFileSync(path, "utf-8")
+  let content = readFileSync(path, "utf-8")
   if (path.endsWith(".jsonc")) {
-    const cleanContent = content
+    content = content
       .replace(/^\s*\/\/.*$/gm, "")
       .replace(/\/\*[\s\S]*?\*\//g, "")
-    return JSON.parse(cleanContent)
   }
+  content = content.replace(/,(\s*[\]\}])/g, "$1")
   return JSON.parse(content)
 }
 
