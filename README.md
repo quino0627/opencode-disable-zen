@@ -1,6 +1,6 @@
 # opencode-disable-zen
 
-OpenCode plugin to disable Zen provider for ZDR (Zero Data Retention) compliance.
+OpenCode plugin to disable Zen provider for safe use at work.
 
 ## Why?
 
@@ -15,56 +15,39 @@ OpenCode Zen's free models may collect data for model training during their free
 
 Source: [OpenCode Zen Privacy Policy](https://opencode.ai/docs/zen/#privacy)
 
-Additionally, Zen's anonymous access (no sign-in required for free models) is **undocumented behavior** - the official documentation states sign-in is required.
-
 ## Installation
 
 ### Quick Install (Recommended)
 
-```bash
-npx opencode-disable-zen install
-```
-
-For global installation:
 ```bash
 npx opencode-disable-zen install --global
 ```
 
 ### Manual Install
 
-```bash
-npm install opencode-disable-zen
-```
-
-Then add to your `opencode.json`:
+Add to your `~/.config/opencode/opencode.json`:
 
 ```json
 {
-  "$schema": "https://opencode.ai/config.json",
   "plugin": ["opencode-disable-zen"]
 }
 ```
 
-Or global config at `~/.config/opencode/opencode.json`.
-
 ## What it does
 
-1. Adds `"opencode"` to `disabled_providers` list
-2. Logs a warning at startup about ZDR implications
-3. Provides audit trail for compliance
+Adds `"opencode"` to `disabled_providers` list, preventing Zen models from being used.
 
 ## CLI Commands
 
 ```bash
-npx opencode-disable-zen install          # Add to local opencode.json
-npx opencode-disable-zen install --global # Add to ~/.config/opencode/opencode.json
-npx opencode-disable-zen uninstall        # Remove from local config
-npx opencode-disable-zen --help           # Show help
+npx opencode-disable-zen install --global  # Add to global config
+npx opencode-disable-zen uninstall --global # Remove from global config
+npx opencode-disable-zen --help            # Show help
 ```
 
 ## For oh-my-opencode users
 
-If you're using oh-my-opencode with free model defaults, also update your agent models:
+If you're using oh-my-opencode, also update your agent models:
 
 ```json
 {
@@ -81,7 +64,6 @@ If you prefer not to use a plugin:
 
 ```json
 {
-  "$schema": "https://opencode.ai/config.json",
   "disabled_providers": ["opencode"]
 }
 ```
